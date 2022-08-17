@@ -13,13 +13,47 @@
         </head>
         <body>
         <div class="login-form">
-            <form action="connexion.php" method="post"><!--envoi vers connexion.php-->
+            <?php 
+                if(isset($_GET['login_err'])){
+                    $err = htmlspecialchars($_GET['login_err']);
+
+                    switch($err){
+                        case 'password':
+                            ?>
+                                <div class="alert alert-danger"
+                                    <p><strong>Erreur </strong>mot de passe incorrect</p>
+                                </div>
+                            <?php
+                        break;
+
+                        case 'email':
+                            ?>
+                                <div class="alert alert-danger"
+                                    <p><strong>Erreur </strong>email incorrect</p>
+                                </div>
+                            <?php
+                        break;
+
+                        case 'already':
+                            ?>
+                                <div class="alert alert-danger"
+                                    <p><strong>Erreur </strong>compte non existant</p>
+                                </div>
+                            <?php
+                        break;
+                    }
+                }
+            ?>
+            <form action="connection.php" method="post"><!--envoi vers connexion.php-->
                 <h2 class="text-center">Connexion</h2>       
                 <div class="form-group">
                     <input type="email" name="email" class="form-control" placeholder="Email" required="required" autocomplete="off"><!--email-->
                 </div>
                 <div class="form-group">
                     <input type="password" name="password" class="form-control" placeholder="Mot de passe" required="required" autocomplete="off"><!--password-->
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password_retype" class="form-control" placeholder="Re-tapez le mot de passe" required="required" autocomplete="off"><!--password-->
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block">Connexion</button><!--bouton-->
