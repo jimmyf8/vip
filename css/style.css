@@ -1,3 +1,10 @@
+body{
+    background-image: url('https://cdn.pixabay.com/photo/2020/09/24/16/50/board-5599231_960_720.png') ;
+}
+.landing{
+    background-image: url('https://cdn.pixabay.com/photo/2022/01/25/11/30/takeaway-6965921_960_720.jpg') ;
+}
+
 .login-form {
     width: 340px;
     margin: 50px auto;
@@ -15,6 +22,7 @@
     min-height: 38px;
     border-radius: 2px;
 }
+
 .btn {        
     font-size: 15px;
     font-weight: bold;
